@@ -29,7 +29,7 @@ def _load_C_extensions():
     source = [os.path.join(this_dir, s) for s in source]
     extra_include_paths = [this_dir]
     return load_ext(
-        "torchvision",
+        "nmstorchvision",  # 从torchvision改为nmstorchvision，防止与torchvision库重名，导致后面报错
         source,
         extra_cflags=extra_cflags,
         extra_include_paths=extra_include_paths,
