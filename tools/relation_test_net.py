@@ -1,6 +1,14 @@
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.
 # Set up custom environment before nearly anything else is imported
 # NOTE: this should be the first import (no not reorder)
+
+import sys
+import os
+from pathlib import Path
+
+project_root = str(Path(os.path.abspath(__file__)).parent.parent)  # 找到项目的根目录
+sys.path.append(project_root)
+print(project_root)
 from maskrcnn_benchmark.utils.env import setup_environment  # noqa F401 isort:skip
 
 import argparse
@@ -16,6 +24,7 @@ from maskrcnn_benchmark.utils.collect_env import collect_env_info
 from maskrcnn_benchmark.utils.comm import synchronize, get_rank
 from maskrcnn_benchmark.utils.logger import setup_logger
 from maskrcnn_benchmark.utils.miscellaneous import mkdir
+
 
 # Check if we can enable mixed-precision via apex.amp
 try:
