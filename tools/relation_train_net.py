@@ -55,7 +55,7 @@ setup_seed(19991001)
 
 def train(cfg, local_rank, distributed, logger):
     debug_print(logger, 'prepare training')
-    model = build_detection_model(cfg) 
+    model = build_detection_model(cfg)   # 定义目标检测模型
     debug_print(logger, 'end model construction')
 
     # modules that should be always set in eval mode
